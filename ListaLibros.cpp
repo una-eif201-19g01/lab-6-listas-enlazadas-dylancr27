@@ -52,6 +52,17 @@ bool ListaLibros::eliminarInicio() {
     }
 }
 
+void ListaLibros::eliminarFinal() {
+    actual = primero;
+    if (primero == nullptr) {
+        primero = new Nodo(_libro, nullptr);
+    } else {
+        while (actual->getSiguiente() != nullptr) {
+            actual = actual->getSiguiente();
+        }
+        actual->setSiguiente(new Nodo(_libro, nullptr));
+    }
+}
 
 
 
