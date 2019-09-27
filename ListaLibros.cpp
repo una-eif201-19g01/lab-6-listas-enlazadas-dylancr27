@@ -51,19 +51,36 @@ bool ListaLibros::eliminarInicio() {
         return true;
     }
 }
-
-void ListaLibros::eliminarFinal() {
-    actual = primero;
-    if (primero == nullptr) {
-        primero = new Nodo(_libro, nullptr);
-    } else {
-        while (actual->getSiguiente() != nullptr) {
-            actual = actual->getSiguiente();
-        }
-        actual->setSiguiente(new Nodo(_libro, nullptr));
-    }
+bool ListaLibros::eliminarFinal()
+{
+	actual = primero;
+	if (primero == nullptr) {
+		return false;
+	}
+	else {
+		while (actual->getSiguiente() != nullptr) {
+			actual = actual->getSiguiente();
+		}
+		delete actual;
+		return true;
+	}
 }
 
+bool ListaLibros::encontrado(int id){
+	actual = primero;
+	if (primero->getLibro().getId() == id ) {
+		return true;
+	}
+        return false;
+}
+
+Libro ListaLibros::obtenerLibro(int id)
+{
+	actual = primero;
+	if (primero->getLibro().getId() == id) {
+		return primero->getLibro();
+	}
+}
 
 
 

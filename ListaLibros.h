@@ -12,7 +12,6 @@
 class ListaLibros {
     Nodo *primero;
     Nodo *actual;
-    Nodo *ultimo;
 
 public:
     ListaLibros();
