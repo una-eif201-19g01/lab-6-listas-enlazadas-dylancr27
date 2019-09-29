@@ -7,8 +7,7 @@
 
 ListaLibros::ListaLibros() {
     primero = nullptr;
-    actual = nullptr;
-    ultimo=nullptr;
+    actual = nullptr;   
 }
 
 ListaLibros::~ListaLibros() {
@@ -66,12 +65,21 @@ bool ListaLibros::eliminarFinal()
 	}
 }
 
-bool ListaLibros::encontrado(int id){
+bool ListaLibros::encontrado(int id)
+{
 	actual = primero;
 	if (primero->getLibro().getId() == id ) {
 		return true;
 	}
-        return false;
+	else
+	{
+		while (actual->getSiguiente()->getLibro().getId() != id) {
+			actual = actual->getSiguiente();
+		}
+		return true;
+	}
+
+	return false;
 }
 
 Libro ListaLibros::obtenerLibro(int id)
@@ -80,8 +88,14 @@ Libro ListaLibros::obtenerLibro(int id)
 	if (primero->getLibro().getId() == id) {
 		return primero->getLibro();
 	}
+	else
+	{
+		while (actual->getSiguiente()->getLibro().getId() != id) {
+			actual = actual->getSiguiente();
+		}
+		return actual->getSiguiente()->getLibro();
+	}
 }
-
 
 
 int ListaLibros::totalNodos() {

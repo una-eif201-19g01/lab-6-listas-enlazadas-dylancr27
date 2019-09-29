@@ -21,8 +21,11 @@ public:
     void insertarInicio(const Libro& _libro);
     void insertarFinal(const Libro& _libro);
     bool eliminarInicio();
+    bool eliminarFinal();
+    bool encontrado(int);
     int totalNodos();
     bool listaVacia();
+    Libro obtenerLibro(int);
 
     Nodo *getPrimero() const;
 

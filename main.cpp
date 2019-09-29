@@ -2,6 +2,7 @@
 #include "Libro.h"
 #include "ListaLibros.h"
 
+using namespace std;
 int main() {
 
     Libro libro1(111, "Harry Potter y el Caliz de Fuego");
